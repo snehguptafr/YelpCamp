@@ -1,0 +1,16 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "Fullstack Code along project for creating and reviewing campgrounds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sneh Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.0"
+  }
+}
