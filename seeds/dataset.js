@@ -1,4 +1,4 @@
-module.exports.camps =  [
+const campgrounds =  [
     { title: "Majestic Mountain Retreat", location: "Asheville, North Carolina" },
     { title: "Sunset Serenity Oasis", location: "Santa Fe, New Mexico" },
     { title: "Whispering Pines Haven", location: "Portland, Oregon" },
@@ -64,3 +64,7 @@ module.exports.camps =  [
     { title: "Mountain Majesty Refuge", location: "Salt Lake City, Utah" },
     { title: "Whispering Winds Campsite", location: "Flagstaff, Arizona" }
   ];
+
+module.exports.camps = campgrounds.map(camp => {
+  return {...camp, image: "https://source.unsplash.com/collection/484351", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel quod officiis quidem, assumenda perferendis ipsa alias aliquam omnis ea tempore quisquam sed iste consequuntur ratione sunt suscipit maxime? Commodi!", price: Math.floor((Math.random()*10000)+20000)}
+})
