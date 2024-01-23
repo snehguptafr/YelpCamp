@@ -30,10 +30,15 @@ app.get("/campgrounds/new", (req, res) => {
   res.render("campgrounds/new");
 });
 
-app.post("/campgrounds", async (req, res) => {
-  const camp = new Campground(req.body.campground);
-  await camp.save();
-  res.redirect(`/campgrounds/${camp._id}`);
+app.post("/campgrounds", async (req, res, next) => {
+  try{
+    const camp = new Campground(req.body.campground);
+    await camp.save();
+    res.redirect(`/campgrounds/${camp._id}`);
+  }
+  catch(e){
+    next(e)
+  }
 });
 
 app.get("/campgrounds/:id", async (req, res) => {
@@ -59,6 +64,10 @@ app.get("/campgrounds/:id/edit", async (req, res) => {
   const camp = await Campground.findById(req.params.id);
   res.render("campgrounds/edit", { camp });
 });
+
+app.use((err, req, res, next) => {
+  res.send("Uh oh! something went wrong :(")
+})
 
 app.listen(3000, () => {
   console.log("Server up on port 3000");
