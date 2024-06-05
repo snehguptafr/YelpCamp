@@ -52,4 +52,9 @@ router.delete("/:id", catchAsync(async (req, res) => {
     res.redirect("/campgrounds");
  }));
 
+router.get("/:id/edit", catchAsync(async (req, res) => {
+  const camp = await Campground.findById(req.params.id);
+  res.render("campgrounds/edit", { camp });
+}));
+
  module.exports = router;
