@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Campground = require("./models/campground");
 const express = require("express");
 const session  = require("express-session");
+const flash = require("connect-flash")
 const ejsMate = require("ejs-mate");
 const path = require("path");
 const app = express();
@@ -34,9 +35,15 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
+
 app.use(session(sessionConfig))
+app.use(flash());
 
-
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+})
 
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/:id/reviews', reviews); 
