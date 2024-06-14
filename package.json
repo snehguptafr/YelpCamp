@@ -9,6 +9,7 @@
   "author": "Sneh Gupta",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.9",
     "ejs-mate": "^4.0.0",
