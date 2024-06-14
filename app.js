@@ -12,6 +12,7 @@ const User = require("./models/user");
 
 const campgrounds = require("./routes/campgrounds");
 const reviews = require("./routes/reviews")
+const users = require("./routes/users")
 
 const ExpressError = require("./utils/ExpressError");
 
@@ -55,6 +56,7 @@ app.use((req, res, next) => {
 
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/:id/reviews', reviews); 
+app.use('/', users);
 
 app.get("/", (req, res) => {
   res.render("home");
