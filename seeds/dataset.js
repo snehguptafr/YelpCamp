@@ -66,5 +66,10 @@ const campgrounds =  [
   ];
 
 module.exports.camps = campgrounds.map(camp => {
-  return {...camp, image: "https://source.unsplash.com/collection/484351", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel quod officiis quidem, assumenda perferendis ipsa alias aliquam omnis ea tempore quisquam sed iste consequuntur ratione sunt suscipit maxime? Commodi!", price: Math.floor((Math.random()*10000)+20000)}
+  return {...camp,
+    image: "https://source.unsplash.com/collection/484351",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel quod officiis quidem, assumenda perferendis ipsa alias aliquam omnis ea tempore quisquam sed iste consequuntur ratione sunt suscipit maxime? Commodi!",
+    price: Math.floor((Math.random()*10000)+20000),
+    author: "666bdc543c02a8edf5e9cf32"
+  }
 })
