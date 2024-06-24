@@ -9,6 +9,7 @@
   "author": "Sneh Gupta",
   "license": "ISC",
   "dependencies": {
+    "@maptiler/client": "^1.8.1",
     "bootstrap": "^5.3.3",
     "cloudinary": "^1.41.3",
     "connect-flash": "^0.1.1",
