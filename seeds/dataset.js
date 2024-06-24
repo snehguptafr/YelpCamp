@@ -67,7 +67,16 @@ const campgrounds =  [
 
 module.exports.camps = campgrounds.map(camp => {
   return {...camp,
-    image: "https://source.unsplash.com/collection/484351",
+    images: [
+      {
+        url: 'https://res.cloudinary.com/ddqlbimns/image/upload/v1719036540/YelpCamp/onb2ibwakncjw2ibl87t.jpg',
+        filename: 'YelpCamp/onb2ibwakncjw2ibl87t',
+      },
+      {
+        url: 'https://res.cloudinary.com/ddqlbimns/image/upload/v1719036540/YelpCamp/gmtvodldlc1eu3dhra4k.jpg',
+        filename: 'YelpCamp/gmtvodldlc1eu3dhra4k',
+      }
+    ],
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel quod officiis quidem, assumenda perferendis ipsa alias aliquam omnis ea tempore quisquam sed iste consequuntur ratione sunt suscipit maxime? Commodi!",
     price: Math.floor((Math.random()*10000)+20000),
     author: "666bdc543c02a8edf5e9cf32"

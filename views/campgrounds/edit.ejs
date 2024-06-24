@@ -2,7 +2,7 @@
 <div class="row">
     <h1 class="text-center">Edit campground</h1>
     <div class="col-6 offset-3">
-        <form action="/campgrounds/<%-camp._id%>?_method=PUT" method="post" class="validated-form" novalidate>
+        <form action="/campgrounds/<%-camp._id%>?_method=PUT" method="post" class="validated-form" enctype="multipart/form-data" novalidate>
           <div class="mb-3">
             <label class="form-label" for="title">Title</label>
             <input class="form-control" type="text" name="campground[title]" id="title" value="<%- camp.title %> " required/>
@@ -12,8 +12,8 @@
             <input class="form-control" type="text" name="campground[location]" id="location" value="<%- camp.location %> " required/>
           </div>
           <div class="mb-3">
-            <label class="form-label" for="image">Image URL</label>
-            <input class="form-control" type="text" name="campground[image]" id="image" value="<%- camp.image %> " required/>
+            <label for="image" class="form-label">Add images</label>
+            <input name="image" class="form-control" type="file" id="image" multiple>
           </div>
           <div class="mb-3">
             <label class="form-label" for="description">Description</label>
@@ -25,6 +25,15 @@
                 <span class="input-group-text" id="price">$</span>
                 <input type="text" class="form-control" name="campground[price]" placeholder="0.00" aria-label="price" aria-describedby="price" value="<%= camp.price %> " required>
             </div>
+          </div>
+          <div class="mb-3">
+            <% camp.images.forEach((img, i) => { %>
+              <img src="<%= img.thumbnail %>" alt="" class="img-thumbnail">
+              <div class="form-check-inline">
+                <input type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
+              </div>
+              <label for="image-<%= i %>">Delete?</label>
+            <% }) %>  
           </div>
           <div class="mb-3">
               <button class="btn btn-info" type="submit">Update</button>
