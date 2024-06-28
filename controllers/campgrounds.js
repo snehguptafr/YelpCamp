@@ -46,7 +46,6 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
-    console.log(req.body)
     const campg = await Campground.findByIdAndUpdate(id, {
       ...req.body.campground,
     });
@@ -60,7 +59,6 @@ module.exports.updateCampground = async (req, res) => {
         cloudinary.uploader.destroy(filename);
       }
       await campg.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages }}}});
-      console.log(campg)
     }
     req.flash("success", "Successfully updated a campground")
     res.redirect(`/campgrounds/${id}`);
